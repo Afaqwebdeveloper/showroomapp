@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Car Models for Brand: {{ brand.name }}</h1>
+    <ul>
+        {% for model in brand_models %}
+            <li>
+                <h3>{{ model.name }}</h3>
+                <p>Engine Specs: {{ model.engine.specs }}</p>
+                <p>Features:</p>
+                <ul>
+                    {% for feature in model.features.all %}
+                        <li>{{ feature.name }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

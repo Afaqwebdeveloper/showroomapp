@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <style>
+        body {
+            
+            height: 2pxvh; 
+        }
+
+        h1, h3, p {
+            text-align: center;
+            margin: 10px;
+            padding: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 20px;
+        }
+
+        img {
+            max-width: 200px;
+            border: 2px solid #ccc;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+
+    <h1 style="color: #008080;">Team</h1>
+    <ul>
+        {% for staff_member in staff_members %}
+            <li>
+                <h3>{{ staff_member.showroom }}</h3>
+                <h3 style="color: #000080;">{{ staff_member.name }}</h3>
+                <p>Position: {{ staff_member.position }}</p>
+                <img src="{{ staff_member.picture.url }}" alt="{{ staff_member.name }}">
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
